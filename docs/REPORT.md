@@ -1,4 +1,4 @@
-Lab-2: Snort ➜ Splunk Portscan Detection
+Lab-2: Snort -> Splunk Portscan Detection
 
 Author: Numan Shaik
 Repo: numanshaik-security/snort-splunk-portscan-demo
