@@ -1,0 +1,2 @@
+index=main sourcetype=snort_console "Portscan Detected"
+| timechart span=5m count AS alerts
