@@ -1,3 +1,5 @@
+➤ [Full Lab Report](docs/REPORT.md) • [Dashboard XML](splunk/snort_portscan_overview.xml) • [Key SPL](scripts/queries/)
+
 # Snort → Splunk Portscan Demo
 
 Small home-lab that detects Nmap SYN scans with Snort and ships the alerts into Splunk.
