@@ -1,0 +1,90 @@
+<dashboard version="1.1" theme="dark">
+  <label>Snort Portscan Overview</label>
+  <description>Real-time view of Snort port-scan detections (SYN bursts) ingested into Splunk, with top sources, targeted ports, and recent alerts</description>
+  <row>
+    <panel>
+      <title>Top attacking sources (src_ip)</title>
+      <chart>
+        <search>
+          <query>index=main sourcetype=snort_console "Portscan Detected"
+| stats count AS events by src_ip
+| sort -events
+| head 10</query>
+          <earliest>-7d@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Top destination ports</title>
+      <chart>
+        <search>
+          <query>index=main sourcetype=snort_console "Portscan Detected"
+| stats count AS events by dst_port
+| sort -events
+| head 10</query>
+          <earliest>-7d@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Portscan alerts over time</title>
+      <chart>
+        <search>
+          <query>index=main sourcetype=snort_console "Portscan Detected"
+| timechart span=5m count AS events</query>
+          <earliest>-7d@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Last 50 raw alerts</title>
+      <table>
+        <search>
+          <query>index=main sourcetype=snort_console "Portscan Detected"
+| table _time priority proto src_ip src_port dst_ip dst_port _raw
+| sort -_time | head 50</query>
+          <earliest>-7d@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</dashboard>
