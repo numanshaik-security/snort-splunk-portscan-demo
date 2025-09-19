@@ -170,7 +170,11 @@ Nmap variants
 nmap -sS -T4 -Pn --max-retries 0 -p 1-1000 192.168.56.101
 nmap -sS -T4 -Pn --min-rate 3000 -p 1-5000 192.168.56.101
 
+MITRE ATT&CK (context)
 
+Reconnaissance T1595 – Active Scanning
+
+Discovery T1046 – Network Service Scanning
 
 
 
