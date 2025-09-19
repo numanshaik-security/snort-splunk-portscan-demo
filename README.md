@@ -43,3 +43,6 @@ SPL queries, and helper scripts.
 ![Snort running](docs/screenshots/terminal-snort-running.jpg)
 ![Tail console](docs/screenshots/terminal-tail-console.jpg)
 ![Splunk monitors](docs/screenshots/terminal-splunk-monitors.png)
+
+▸ [Full Lab Report](docs/REPORT.md)
+
