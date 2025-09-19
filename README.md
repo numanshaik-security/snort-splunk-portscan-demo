@@ -21,3 +21,25 @@ SPL queries, and helper scripts.
 2) Add Splunk monitors (one-time)  
    `sudo ./scripts/add_splunk_inputs.sh`
 3) Open Splunk → Search & Reporting and run the SPL in `queries/`.
+
+## Screenshots
+
+**Dashboard overview**
+
+![Dashboard](docs/screenshots/dashboard-overview.png)
+
+**Panels**
+
+| Over time | Top sources | Top destination ports |
+|---|---|---|
+| ![Over time](docs/screenshots/panel-over-time.png) | ![Top sources](docs/screenshots/panel-top-src.png) | ![Top dst port](docs/screenshots/panel-top-dst-port.png) |
+
+**Last 50 alerts**
+
+![Last 50](docs/screenshots/panel-last-50.png)
+
+**Live terminals**
+
+![Snort running](docs/screenshots/terminal-snort-running.jpg)
+![Tail console](docs/screenshots/terminal-tail-console.jpg)
+![Splunk monitors](docs/screenshots/terminal-splunk-monitors.png)
