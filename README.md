@@ -2,27 +2,31 @@
 
 # Snort → Splunk Portscan Demo
 
-Small home-lab that detects Nmap SYN scans with Snort and ships the alerts into Splunk.
-Includes a minimal dashboard (top sources, top destination ports, timeline, last 50 alerts),
-SPL queries, and helper scripts.
+This home-lab demonstrates how to detect **Nmap SYN scans** using **Snort** and visualize the alerts in **Splunk**.  
+The setup includes a small but functional Splunk dashboard with panels for **top sources, top destination ports, timelines, and recent alerts**.  
 
-## What it shows
-- Realtime “TCP Portscan Detected (SYN burst)” alerts
-- Parsed IP/ports/proto/priority
-- A small, readable Splunk dashboard
+---
 
-## Folders
-- `scripts/` – start Snort and add Splunk monitors
-- `splunk/` – dashboard XML export
-- `queries/` – SPL used by the panels
-- `docs/screenshots/` – screenshots for README/LinkedIn
+## 🔍 What it shows
+- Real-time `TCP Portscan Detected (SYN burst)` alerts from Snort  
+- Parsed fields for **source IP, destination IP, protocol, ports, and priority**  
+- A simple, readable **Splunk dashboard** for triage  
 
-## How to run (short)
-1) Start Snort on host-only NIC and tee to console.log  
-   `sudo ./scripts/run_snort_console.sh`
-2) Add Splunk monitors (one-time)  
-   `sudo ./scripts/add_splunk_inputs.sh`
-3) Open Splunk → Search & Reporting and run the SPL in `queries/`.
+---
+
+## 📂 Repository Structure
+- `scripts/` – helper scripts to run Snort and add Splunk monitors  
+- `splunk/` – XML export of the Splunk dashboard  
+- `queries/` – SPL queries used by the panels  
+- `docs/screenshots/` – screenshots for README and LinkedIn  
+
+---
+
+## ⚡ How to Run (Quick Start)
+1. Start Snort on a host-only NIC and log output:  
+   ```bash
+   sudo ./scripts/run_snort_console.sh
+
 
 ## Screenshots
 
